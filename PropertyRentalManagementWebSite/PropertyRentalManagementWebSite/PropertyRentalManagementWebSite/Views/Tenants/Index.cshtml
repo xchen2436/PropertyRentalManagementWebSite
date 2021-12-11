@@ -1,0 +1,66 @@
+﻿@model IEnumerable<PropertyRentalManagementWebSite.Models.Tenant>
+
+@{
+    ViewData["Title"] = "Admin_TenantsPage";
+    Layout = "~/Views/Shared/_LayoutForAdmin.cshtml";
+}
+
+<h1>Welcome To Admin Page</h1>
+
+<p>
+    <a asp-action="Create">Create New Tenant</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TenantUsername)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TenantPassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TenantFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TenantLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TenantEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TenantPhonenumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenantUsername)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenantPassword)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenantFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenantLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenantEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenantPhonenumber)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TenantId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.TenantId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.TenantId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome Property Rental Management</h1>
+    <br><br>
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Index</title>
+    </head>
+    <body>
+
+        <h3>Login As Tenant</h3>
+        @ViewBag.error
+        <form method="post" asp-controller="Apartments" asp-action="WelcomeTenant">
+            <tr>
+                <td>Username</td>
+                <td><input type="text" name="username"></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" name="password"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><input type="submit" value="Login" class="btn btn-danger"></td>
+            </tr>
+        </form><br><br>
+        <form asp-controller="Home" asp-action="Index">
+            <input type="submit" value="loginAsAdmin" class="btn btn-danger">
+        </form><br><br>
+        <form asp-controller="Home" asp-action="loginAsMenager">
+            <input type="submit" value="loginAsMenager" class="btn btn-danger">
+        </form><br><br>
+        <form asp-controller="Tenants" asp-action="CreateForTenant">
+            <input type="submit" value="Not our Tenant? Click to Create Account" class="btn btn-danger">
+        </form><br><br>
+    </body>
+</html>
+<br><br>
+<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>

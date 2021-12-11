@@ -1,0 +1,60 @@
+﻿@model IEnumerable<PropertyRentalManagementWebSite.Models.AppointmentAssignment>
+
+@{
+    ViewData["Title"] = "Admin_AAPage";
+    Layout = "~/Views/Shared/_LayoutForAdmin.cshtml";
+}
+
+<h1>Welcome To Admin Page</h1>
+
+<p>
+    <a asp-action="Create">Create New Appointment</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoteMessage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apartment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Manager)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tenant)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoteMessage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apartment.ApartmentAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Manager.ManagerUsername)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tenant.TenantLastName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.AssignmentId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.AssignmentId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.AssignmentId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

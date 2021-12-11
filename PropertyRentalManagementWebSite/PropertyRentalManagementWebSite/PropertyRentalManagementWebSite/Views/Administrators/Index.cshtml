@@ -1,0 +1,44 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model IEnumerable<PropertyRentalManagementWebSite.Models.Administrator>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutForAdmin.cshtml";
+}
+
+<h1>Welcome To Admin Page</h1>
+
+<p>
+    <a asp-action="Create">Create New Administrator</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminUsername)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminPassword)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdminUsername)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdminPassword)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.AdminId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.AdminId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.AdminId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

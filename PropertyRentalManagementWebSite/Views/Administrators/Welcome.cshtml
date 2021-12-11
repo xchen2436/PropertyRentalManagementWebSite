@@ -1,0 +1,11 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model IEnumerable<PropertyRentalManagementWebSite.Models.Administrator>
+
+@{
+    ViewData["Title"] = "Welcome";
+    Layout = "~/Views/Shared/_LayoutForAdmin.cshtml";
+}
+
+<h1 class="display-4">Welcome @Context.Session.GetString("username") to administrator page</h1>
+<h2 class="display-4">You have full control on this website</h2>
+

@@ -1,0 +1,11 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model IEnumerable<PropertyRentalManagementWebSite.Models.Apartment>
+
+@{
+    ViewData["Title"] = "Welcome";
+    Layout = "~/Views/Shared/_LayoutForTenant.cshtml";
+}
+
+<h1 class="display-4">Welcome @Context.Session.GetString("username") to Tenant page</h1>
+<h2 class="display-6">You can view the info of apartment, and make appointment with Manager</h2>
+

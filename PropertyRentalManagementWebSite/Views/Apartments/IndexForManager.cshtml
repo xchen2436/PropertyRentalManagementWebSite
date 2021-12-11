@@ -1,0 +1,48 @@
+﻿@model IEnumerable<PropertyRentalManagementWebSite.Models.Apartment>
+
+@{
+    ViewData["Title"] = "Admin_AppartmentPage";
+    Layout = "~/Views/Shared/_LayoutForManager.cshtml";
+}
+
+<h1>Welcome To Manager Page</h1>
+
+<p>
+    <a asp-action="CreateForManager">Create New Apartment</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ApartmentType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApartmentPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApartmentAddress)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApartmentType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApartmentPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApartmentAddress)
+            </td>
+            <td>
+                <a asp-action="EditForManager" asp-route-id="@item.ApartmentId">Edit</a> |
+                <a asp-action="DetailsForManager" asp-route-id="@item.ApartmentId">Details</a> |
+                <a asp-action="DeleteForManager" asp-route-id="@item.ApartmentId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

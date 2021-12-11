@@ -1,0 +1,41 @@
+﻿@model IEnumerable<PropertyRentalManagementWebSite.Models.Apartment>
+
+@{
+    ViewData["Title"] = "Appartment";
+    Layout = "~/Views/Shared/_LayoutForTenant.cshtml";
+}
+
+<h1>Welcome To Tenant Page</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ApartmentType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApartmentPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApartmentAddress)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApartmentType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApartmentPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApartmentAddress)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

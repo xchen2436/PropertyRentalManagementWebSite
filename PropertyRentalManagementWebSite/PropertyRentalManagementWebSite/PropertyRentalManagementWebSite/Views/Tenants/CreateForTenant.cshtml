@@ -1,0 +1,56 @@
+﻿@model PropertyRentalManagementWebSite.Models.Tenant
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Tenant</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateTenant">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TenantUsername" class="control-label"></label>
+                <input asp-for="TenantUsername" class="form-control" />
+                <span asp-validation-for="TenantUsername" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenantPassword" class="control-label"></label>
+                <input asp-for="TenantPassword" class="form-control" />
+                <span asp-validation-for="TenantPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenantFirstName" class="control-label"></label>
+                <input asp-for="TenantFirstName" class="form-control" />
+                <span asp-validation-for="TenantFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenantLastName" class="control-label"></label>
+                <input asp-for="TenantLastName" class="form-control" />
+                <span asp-validation-for="TenantLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenantEmail" class="control-label"></label>
+                <input asp-for="TenantEmail" class="form-control" />
+                <span asp-validation-for="TenantEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenantPhonenumber" class="control-label"></label>
+                <input asp-for="TenantPhonenumber" class="form-control" />
+                <span asp-validation-for="TenantPhonenumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
